@@ -6,6 +6,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer as Tfv
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score, classification_report
+from sklearn.linear_model import LogisticRegression as LG
 
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -46,11 +47,17 @@ X_train, X_test, Y_train, Y_test = train_test_split(
     X,Y, test_size = 0.2, random_state=42
 )
 
-model = MultinomialNB()
-model.fit(X_train,Y_train)
-Y_pred = model.predict(X_test)
+#model = MultinomialNB()
+#model.fit(X_train,Y_train)
+#Y_pred = model.predict(X_test)
 
-print("Accuracy: ", accuracy_score(Y_test,Y_pred))
-print(classification_report(Y_test,Y_pred))
+log_reg_model = LG(max_iter=1000)
+log_reg_model.fit(X_train,Y_train)
+log_Y_pred = log_reg_model.predict(X_test)
+
+#print("Naive Bayes")
+print("Accuracy: ", accuracy_score(Y_test,log_Y_pred))
+print(classification_report(Y_test,log_Y_pred))
+
 
 
