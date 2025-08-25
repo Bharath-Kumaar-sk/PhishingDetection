@@ -2,6 +2,11 @@ import nltk
 import re
 import pandas as pd 
 
+from sklearn.feature_extraction.text import TfidfVectorizer as Tfv
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import accuracy_score, classification_report
+
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
@@ -26,7 +31,26 @@ def clean_text(text):
             filtered_tokens.append(w)
     lemmatizer = WordNetLemmatizer()
     lemmatized_tokens = [lemmatizer.lemmatize(w) for w in filtered_tokens]
-    preprocessed_email = ' '.join(lemmatized_toekens)
+    preprocessed_email = ' '.join(lemmatized_tokens)
     return preprocessed_email
 
-df["cleaned text"] = df["text"].apply(clean_text)
+df["Email Text"] = df["Email Text"].fillna("").astype(str)
+df["Clean text"] = df["Email Text"].apply(clean_text)
+print(df[["Email Text", "Clean text","Email Type"]].head(3))
+
+vectorizer = Tfv(max_features=5000)
+X = vectorizer.fit_transform(df["Clean text"])
+Y = df["Email Type"]
+
+X_train, X_test, Y_train, Y_test = train_test_split(
+    X,Y, test_size = 0.2, random_state=42
+)
+
+model = MultinomialNB()
+model.fit(X_train,Y_train)
+Y_pred = model.predict(X_test)
+
+print("Accuracy: ", accuracy_score(Y_test,Y_pred))
+print(classification_report(Y_test,Y_pred))
+
+
