@@ -89,8 +89,6 @@ KEY TECHNIQUES:
 - NLTK text preprocessing pipeline
 - Logistic Regression classification
 
-EXPECTED OUTPUT:
-[Output will be captured after execution]
 
 
 2. AdvancedNLP.py - Word2Vec Embeddings
@@ -124,8 +122,6 @@ ADVANTAGES OVER BASELINE:
 - Better handles synonyms and related terms
 - Dense representations vs sparse TF-IDF
 
-EXPECTED OUTPUT:
-[Output will be captured after execution]
 
 
 3. Hybrid.py - TF-IDF Weighted Word2Vec
@@ -158,8 +154,6 @@ ADVANTAGES:
 - Reduces noise from common but uninformative words
 - Maintains semantic relationships from Word2Vec
 
-EXPECTED OUTPUT:
-[Output will be captured after execution]
 
 
 4. DistilBert.py - Transformer-Based Approach
@@ -196,8 +190,6 @@ ADVANTAGES:
 - Captures complex linguistic patterns
 - Better handling of context and word sense
 
-EXPECTED OUTPUT:
-[Output will be captured after execution]
 
 
 5. BasicVersion2.py - Feature Engineering Approach
@@ -238,8 +230,6 @@ ADVANTAGES:
 - Combines statistical text features with forensic markers
 - Interpretable feature importance
 
-EXPECTED OUTPUT:
-[Output will be captured after execution]
 
 
 6. ErrorAnalysis.py - Model Introspection
@@ -275,8 +265,6 @@ PURPOSE & VALUE:
 - Guide future improvements
 - Validate model reliability
 
-EXPECTED OUTPUT:
-[Output will be captured after execution]
 
 
 7. RobustHybrid.py - Production-Ready Final Model
@@ -333,8 +321,6 @@ ADVANTAGES:
 - Ready for deployment with prediction API
 - Combines all best practices from previous approaches
 
-EXPECTED OUTPUT:
-[Output will be captured after execution]
 
 
 ================================================================================
